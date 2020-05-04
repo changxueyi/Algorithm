@@ -3,15 +3,23 @@ package Leetcode.链表;
 import java.util.Arrays;
 
 import static Leetcode.链表._06_从尾到头打印链表.reversePrint;
-import static Leetcode.链表._24_两两交换链表中的节点.swapPairs;
 
 /**
- * @ClassName Main
+ * @ClassName _24_反转链表
  * @Description TODO
  * @Author changxueyi
- * @Date 2020/5/2 9:27
+ * @Date 2020/5/3 9:53
  */
-public class Main {
+public class _24_反转链表 {
+    public static ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+        ListNode newHead = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
@@ -23,11 +31,13 @@ public class Main {
         node2.next = node3;
         node3.next = node4;
         node4.next = node5;
-        ListNode a = swapPairs(node1);
-        while (a!=null){
+        ListNode a = reverseList(node1);
+        while (a!= null) {
             System.out.print(a.val);
             System.out.print("->");
-            a = a.next;
+            a =a.next;
         }
     }
+
+
 }
