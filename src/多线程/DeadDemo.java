@@ -49,11 +49,11 @@ public class DeadDemo implements Runnable {
         DeadDemo demo1 = new DeadDemo();
         DeadDemo demo2 = new DeadDemo();
         demo1.setFlag(0);
-        Thread thread1 = new Thread(demo1, "Thread1");
+        Thread thread1 = new Thread(demo1, "Thread-1");
         thread1.start();
 
         demo2.setFlag(1);
-        Thread thread2 = new Thread(demo2, "Thread2");
+        Thread thread2 = new Thread(demo2, "Thread-2");
         thread2.start();
     }
 }
