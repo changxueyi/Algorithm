@@ -61,11 +61,30 @@ public class _21_调整数组顺序使奇数位于偶数前面 {
         }
         return aaa;
     }
+    public static int[] exchange3(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            while ((nums[left] & 1) == 1) left++;
+            while ((nums[right] & 1) == 0) right--;
+
+            if (left < right) {
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+            }else {
+                return nums;
+            }
+        }
+        return nums;
+    }
+
+
 
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
-        int[] aa  =  exchange1(arr);
+        int[] aa = exchange1(arr);
         System.out.println(Arrays.toString(aa));
     }
 }

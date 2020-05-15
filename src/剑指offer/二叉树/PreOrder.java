@@ -1,5 +1,7 @@
 package 剑指offer.二叉树;
 
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -13,11 +15,12 @@ import java.util.Stack;
 public class PreOrder {
 
     void dfs(TreeNode root) {
-        if(root == null) return;
+        if (root == null) return;
         dfs(root.right); // 右
         System.out.println(root.val); // 根
         dfs(root.left); // 左
     }
+
     //前序遍历
     public static List<Integer> preOrder1(TreeNode root) {
         ArrayList<Integer> arr = new ArrayList<>();
@@ -26,11 +29,11 @@ public class PreOrder {
     }
 
     static void dfs(ArrayList<Integer> arr, TreeNode root) {
-        if (root==null) return;
+        if (root == null) return;
         arr.add(root.val);
-        System.out.print(root.val+" ");
-        dfs(arr,root.left);
-        dfs(arr,root.right);
+        System.out.print(root.val + " ");
+        dfs(arr, root.left);
+        dfs(arr, root.right);
     }
 
     public static List<Integer> preOrder2(TreeNode root) {
@@ -51,6 +54,28 @@ public class PreOrder {
         }
         return arr;
     }
+
+    //21点58分 2020 /5/10  前序
+    public static List<Integer> preOrder3(TreeNode root) {
+        List<Integer> arr = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if (root == null) {
+            return arr;
+        }
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            arr.add(node.val);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+        return arr;
+    }
+
 
     public static void main(String[] args) {
         TreeNode[] node = new TreeNode[7];//以数组形式生成一棵完全二叉树

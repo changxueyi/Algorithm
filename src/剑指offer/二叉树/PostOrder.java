@@ -1,7 +1,9 @@
 package 剑指offer.二叉树;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @ClassName PostOrder
@@ -21,7 +23,7 @@ public class PostOrder {
             TreeNode node = stack.pollLast();
             arr.offerFirst(node.val);
             //这个位置因为插入的是最后一个元素，所以出现了打印与结果想反
-            System.out.print(node.val+" ");
+            System.out.print(node.val + " ");
             if (node.left != null) {
                 stack.add(node.left);
             }
@@ -46,9 +48,9 @@ public class PostOrder {
         houxu(node[0]);
         System.out.println("***");
         houxu(node[0]);
-      //  TreeNode root = createBinaryTree();
-     //   System.out.println("\nPostOrder: ");
-     //   houxu(root);
+        //  TreeNode root = createBinaryTree();
+        //   System.out.println("\nPostOrder: ");
+        //   houxu(root);
     }
 
     //官方答案
@@ -63,7 +65,7 @@ public class PostOrder {
         while (!stack.isEmpty()) {
             TreeNode node = stack.pollLast();
             output.addFirst(node.val);
-            System.out.print(node.val+" ");
+            System.out.print(node.val + " ");
             if (node.left != null) {
                 stack.add(node.left);
             }
@@ -72,6 +74,26 @@ public class PostOrder {
             }
         }
         return output;
+    }
+
+    public List<Integer> postorderTraversal2(TreeNode root) {
+        LinkedList<TreeNode> stack = new LinkedList<>();
+        LinkedList<Integer> arr = new LinkedList<>();
+        if (root == null) {
+            return arr;
+        }
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pollLast();
+            arr.addFirst(node.val);
+            if (node.left != null) {
+                stack.add(node.left);
+            }
+            if (node.right != null) {
+                stack.add(node.right);
+            }
+        }
+        return arr;
     }
 
     private static TreeNode createBinaryTree() {
@@ -89,6 +111,27 @@ public class PostOrder {
         node3.left = node4;
 
         return root;
+    }
+
+    // 最好的解决方案
+    public List<Integer> postorderTraversal3(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> arr = new ArrayList<>();
+        if (root == null) {
+            return arr;
+        }
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            arr.add(0,node.val);
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+        }
+        return arr;
     }
 
 }

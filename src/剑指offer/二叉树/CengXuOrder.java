@@ -1,27 +1,30 @@
 package 剑指offer.二叉树;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
- * @ClassName _32_ii_从上到下打印二叉树
+ * @ClassName CengXuOrder
  * @Description TODO
  * @Author changxueyi
- * @Date 2020/5/5 9:19
+ * @Date 2020/5/11 9:24
  */
-public class _32_ii_从上到下打印二叉树 {
+public class CengXuOrder {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> res = new LinkedList<>();
+        List<List<Integer>> arr = new LinkedList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         if (root == null) {
-            return res;
+            return arr;
         }
         queue.add(root);
         while (!queue.isEmpty()) {
-            ArrayList arr = new ArrayList();
+            ArrayList<Integer> cur = new ArrayList<>();
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
-                arr.add(node.val);
+                cur.add(node.val);
                 if (node.left != null) {
                     queue.add(node.left);
                 }
@@ -29,8 +32,8 @@ public class _32_ii_从上到下打印二叉树 {
                     queue.add(node.right);
                 }
             }
-            res.add(arr);
+            arr.add(cur);
         }
-        return res;
+        return arr;
     }
 }
