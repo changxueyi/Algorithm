@@ -7,6 +7,7 @@ package leetcode.暴力法;
  * @Date 2020/5/14 14:40
  */
 public class _9_回文数__一个数求反数背会 {
+    //此题是阿里面试题
     public boolean isPalindrome(int x) {
         //如果是负数一定不是回文数
         if (x < 0) {

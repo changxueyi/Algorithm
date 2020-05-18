@@ -73,7 +73,7 @@ public class _29_顺时针打印矩阵 {
             }
             if (left != right) {
                 //特别注意，这个位置是i>up
-                for (int i = down - 1; i >up; i--) {
+                for (int i = down - 1; i > up; i--) {
                     arr[count++] = matrix[i][left];
                 }
             }
@@ -81,6 +81,43 @@ public class _29_顺时针打印矩阵 {
             right--;
             down--;
             up++;
+        }
+        return arr;
+    }
+
+    //11点13分 2020/5/16
+    public int[] spiralOrder3(int[][] matrix) {
+        //错误点1 ： 下面少写 -1
+        int left = 0, top = 0, right = matrix[0].length-1, down = matrix.length-1;
+        int[] arr = new int[right * down];
+        //错误点2： 少写=判断
+        //错误点4 要保持一整个连续的，所以要使用count
+        int count = 0;
+        while (right >= left && down >= top) {
+            //错误点3：自己写成了 int i= 0；
+            for (int i = left; i <= right; i++) {
+                arr[count++] = matrix[top][i];
+            }
+            //错误点5： 自己写成了 int i=1,,,如果仅剩一个5，就不走下面这个，直接在上一层循环中打印过5就结束
+            for (int i = top+1; i <= down; i++) {
+                arr[count++] = matrix[i][right];
+            }
+            //错误点6 自己写成了if (down > top) {
+            if (top != down) {
+                for (int i = right - 1; i >= left; i--) {
+                    arr[count++] = matrix[down][i];
+                }
+            }
+            if (left != right) {
+                //这个位置特殊处理下i > top，没有等于号
+                for (int i = down - 1; i > top; i--) {
+                    arr[count++] = matrix[i][left];
+                }
+               }
+            left++;
+            top++;
+            right--;
+            down--;
         }
         return arr;
     }

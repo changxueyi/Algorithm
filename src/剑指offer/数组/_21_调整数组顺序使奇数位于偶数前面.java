@@ -61,6 +61,7 @@ public class _21_调整数组顺序使奇数位于偶数前面 {
         }
         return aaa;
     }
+
     public static int[] exchange3(int[] nums) {
         int left = 0;
         int right = nums.length - 1;
@@ -72,19 +73,33 @@ public class _21_调整数组顺序使奇数位于偶数前面 {
                 int temp = nums[left];
                 nums[left] = nums[right];
                 nums[right] = temp;
-            }else {
+            } else {
                 return nums;
             }
         }
         return nums;
     }
 
-
+    //11点06分 2020/5/16
+    public static int[] exchange4(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (right > left) {
+            while (right > left && (nums[left] & 1) == 1) left++;
+            while (right > left && (nums[right] & 1) == 0) right--;
+            if (right > left) {
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+            }
+        }
+        return nums;
+    }
 
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
-        int[] aa = exchange1(arr);
+        int[] aa = exchange4(arr);
         System.out.println(Arrays.toString(aa));
     }
 }

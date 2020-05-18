@@ -22,4 +22,19 @@ public class _62_圆圈中最后剩下数字 {
         }
         return arr.get(0);
     }
+
+    public static int lastRemaining2(int n, int m) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            arr.add(i);
+        }
+        int idx = 0;
+        while (n > 1) {
+            idx = (idx + m - 1) % 10; //3 5
+            arr.remove(idx);
+            n--;
+        }
+        return arr.get(0);
+    }
+
 }

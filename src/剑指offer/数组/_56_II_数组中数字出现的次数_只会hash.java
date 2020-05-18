@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
- * @ClassName _56_II_数组中数字出现的次数
+ * @ClassName _56_II_数组中数字出现的次数_只会hash
  * @Description TODO
  * @Author changxueyi
  * @Date 2020/5/14 9:56
  */
-public class _56_II_数组中数字出现的次数 {
+public class _56_II_数组中数字出现的次数_只会hash {
     public int singleNumber(int[] nums) {
         if (nums.length == 0 || nums == null) {
             return -1;

@@ -1,5 +1,8 @@
 package 剑指offer.数组;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @ClassName _03_排序数组去重
  * @Description TODO
@@ -28,13 +31,28 @@ public class _03_排序数组去重 {
                 arr[i] = arr[j];
             }
         }
-        return i+1;
+        return i + 1;
+    }
+
+    //17点05分 2020/5/15
+    public static int  findRepeatNumber1(int[] nums) {
+        if (nums.length == 0 || nums == null) return -1;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int a = nums[i];
+            if (map.containsKey(a)){
+                return a;
+            }else {
+                map.put(a,1);
+            }
+        }
+        return -1;
     }
 
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 2, 3, 3};
-        int a = findRepeatNumber(arr);
+        int[] arr = {1, 1,1};
+        int a = findRepeatNumber1(arr);
         System.out.println(a);
     }
 }

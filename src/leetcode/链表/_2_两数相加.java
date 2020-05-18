@@ -3,7 +3,7 @@ package leetcode.链表;
 import java.util.Stack;
 
 /**
- * @ClassName _2_两数相加
+ * @ClassName _2_两数相加_标记
  * @Description TODO
  * @Author changxueyi
  * @Date 2020/5/14 21:16
@@ -38,9 +38,8 @@ public class _2_两数相加 {
             flag = sum / 10;
             node.next = head;
             head = node;
-            reverse(node);
         }
-        return head;
+         return   reverse(head);
     }
 
     private ListNode reverse(ListNode head) {

@@ -25,7 +25,20 @@ public class _03_数组中重复的数字 {
     }
 
     //去除重复数组后，数组剩下的数量
-    public  static int findRepeatNumber1(int[] nums) {
+    public static int findRepeatNumber1(int[] nums) {
+        if (nums == null) return -1;
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[i] != nums[j]) {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        return i + 1;
+    }
+
+    //17点14分 2020/5/15  //排序数组去重
+    public static int findRepeatNumber2(int[] nums) {
         if (nums == null) return -1;
         int i = 0;
         for (int j = 1; j < nums.length; j++) {

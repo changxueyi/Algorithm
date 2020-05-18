@@ -30,6 +30,23 @@ public class _234_回文链表 {
         return true;
     }
 
+    //16点49分 再战
+    //无语了，[-129,-129]输入这个，我输出false 预期结果是true
+    public boolean isPalindrome1(ListNode head) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        while (head != null) {
+            arr.add(head.val);
+            head = head.next;
+        }
+        int n = arr.size();
+        for (int i = 0; i < n / 2; i++) {
+            if (arr.get(i) != arr.get(n - i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     //1 1 2 1
     //1 2 1 1
     public static void main(String[] args) {

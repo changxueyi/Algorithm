@@ -21,4 +21,23 @@ public class _57_和为s的连续正数序列 {
         }
         return new int[0];
     }
+
+    //14点01分 2020/5/16
+    public int[] twoSum2(int[] nums, int target) {
+        int i = 0;
+        int j = nums.length - 1;
+        int[] arr = new int[2];
+        while (j > i) {
+            if ((nums[i] + nums[j]) > target) {
+                j--;
+            } else if ((nums[i] + nums[j]) < target) {
+                i++;
+            } else {
+                return new int[]{nums[i],nums[j]};
+            }
+        }
+        return new int[0];
+    }
+
+
 }

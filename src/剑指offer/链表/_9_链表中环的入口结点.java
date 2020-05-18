@@ -40,7 +40,5 @@ public class _9_链表中环的入口结点 {
         node4.next = node1;
         ListNode resutl = detectCycle(node1);
         System.out.println(resutl.val);
-
-
     }
 }

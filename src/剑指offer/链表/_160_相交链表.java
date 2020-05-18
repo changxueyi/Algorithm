@@ -24,9 +24,29 @@ public class _160_相交链表 {
             }
         }
 
-            return a;
+        return a;
 
     }
+
+    public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) return null;
+        ListNode a = headA;
+        ListNode b = headB;
+        while (a != b) {
+            if (a != null) {
+                a = a.next;
+            } else {
+                a = headB;
+            }
+            if (b != null) {
+                b = b.next;
+            } else {
+                b = headA;
+            }
+        }
+        return a;
+    }
+
 
     public static void main(String[] args) {
         // 1 3 6 9

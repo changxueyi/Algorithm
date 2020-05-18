@@ -15,6 +15,7 @@ public class _24_两两交换链表中的节点 {
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
         ListNode pre = dummy;
+        //保证两个都不能为空
         while (pre.next != null && pre.next.next != null) {
             ListNode start = pre.next;
             ListNode end = pre.next.next;
