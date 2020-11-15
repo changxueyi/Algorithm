@@ -1,7 +1,7 @@
 package leetcode.数组;
 
 /**
- * @ClassName _283_移动零
+ * @ClassName _283_移动零0
  * @Description TODO
  * @Author changxueyi
  * @Date 2020/5/6 15:03

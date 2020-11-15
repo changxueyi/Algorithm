@@ -27,4 +27,25 @@ public class MidOrder {
         }
         return arr;
     }
+
+    //15点07分 2020 /5/18
+    public List<Integer> inorderTraversal1(TreeNode root) {
+        //中序遍历二叉树
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if (root == null) {
+            return list;
+        }
+        TreeNode cur = root;
+        while (!stack.isEmpty() || cur != null) {
+            while (cur != null) {
+                stack.push(root.left);
+                cur = cur.left;
+            }
+            TreeNode node = stack.pop();
+            list.add(node.val);
+            cur = cur.right;
+        }
+        return list;
+    }
 }

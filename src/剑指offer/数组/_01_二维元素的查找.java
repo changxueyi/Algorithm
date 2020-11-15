@@ -6,7 +6,7 @@ package 剑指offer.数组;
  * @Author changxueyi
  * @Date 2020/5/2 16:34
  */
-public class _01_二维元素的查找 {
+public class  _01_二维元素的查找 {
     public boolean search(int[][] arr, int target) {
         if (arr == null || arr.length == 0 || arr[0].length == 0) return false;
 

@@ -1,5 +1,7 @@
 package leetcode.链表;
 
+import java.util.List;
+
 /**
  * @ClassName _82_删除排序链表中的重复元素_较复杂
  * @Description TODO
@@ -65,11 +67,43 @@ public class _82_删除排序链表中的重复元素_较复杂 {
                     temp = temp.next;
                 }
                 cur.next = temp.next;
-            }else {
+            } else {
                 cur = cur.next;
             }
         }
         return dummy.next;
+    }
+
+    //16点21分 2020 /5/18 再战
+    public ListNode deleteDuplicates2(ListNode head) {
+        ListNode dummy = new ListNode(-1);
+        ListNode pre = dummy;
+        while (pre.next != null && pre.next.next != null) {
+            if (pre.next.val == pre.next.next.val) {
+                ListNode temp = pre.next;
+                while (temp != null && temp.next != null && temp.val == temp.next.next.val) {
+                    temp = temp.next;
+                }
+                pre.next = temp.next;
+            } else {
+                pre = pre.next;
+            }
+        }
+        return dummy.next;
+    }
+
+    static void Swap(int a, int b) {
+        if (a != b) {
+            a ^= b;
+            b ^= a;
+            a ^= b;
+        }
+    }
+
+    public static void main(String[] args) {
+        int a = 2,b =3;
+        Swap(a,b);
+        System.out.println(a);
     }
 
 }

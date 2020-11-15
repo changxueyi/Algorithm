@@ -17,6 +17,7 @@ public class _29_顺时针打印矩阵 {
         //定义上下左右边界
         int left = 0, right = matrix[0].length - 1, up = 0, down = matrix.length - 1;
 
+
         //遍历
         while (left <= right && up <= down) {
             //第一个，从左到右遍历

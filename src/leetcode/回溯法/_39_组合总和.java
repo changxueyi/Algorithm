@@ -1,4 +1,4 @@
-package leetcode.回溯;
+package leetcode.回溯法;
 
 /**
  * @ClassName _39_组合总和

@@ -12,7 +12,24 @@ public class _58_I翻转单词顺序 {
         s = s.trim();
         int i = s.length() - 1;
         int j = s.length() - 1;
-        while (i > 0) {
+        while (i >= 0) {
+            while (s.charAt(i) != ' ' && i >= 0) i--;
+            String a = s.substring(i + 1, j + 1);
+            res.append(a + " ");
+            while (i >= 0 && s.charAt(i) == ' ') i--;
+            j = i;
+        }
+        return res.toString().trim();
+    }
+
+
+    //08点26分 2020/5/21
+    public String reverseWords1(String s) {
+        StringBuilder res = new StringBuilder();
+        s.trim();
+        int i = s.length() - 1;
+        int j = i;
+        while (i >= 0 && j >= 0) {
             while (s.charAt(i) != ' ' && i >= 0) i--;
             String a = s.substring(i + 1, j + 1);
             res.append(a + " ");

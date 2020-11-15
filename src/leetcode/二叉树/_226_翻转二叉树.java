@@ -41,4 +41,18 @@ public class _226_翻转二叉树 {
         return root;
     }
 
+    //非常好的递归的方式
+    public TreeNode invertTree2(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode right = invertTree(root.right);
+        TreeNode left = invertTree(root.left);
+        root.left = right;
+        root.right = left;
+        return root;
+    }
+
+
+
 }

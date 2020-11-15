@@ -31,6 +31,29 @@ public class _21_合并两个有序链表 {
         return dummy.next;
     }
 
+    public ListNode mergeTwoLists1(ListNode l1, ListNode l2) {
+        ListNode a = l1;
+        ListNode b = l2;
+        ListNode dummy = new ListNode(-1);
+        ListNode cur = dummy;
+        while (a != null && b != null) {
+            if (a.val > b.val) {
+                cur.next = b;
+                b = b.next;
+            } else {
+                cur.next = a;
+                a = a.next;
+            }
+            cur = cur.next;
+        }
+        if (a == null) {
+            cur.next = b;
+        } else {
+            cur.next = a;
+        }
+        return dummy.next;
+    }
+
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(3);

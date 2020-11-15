@@ -32,6 +32,7 @@ public class _01_07_旋转矩阵 {
     }
 
 
+
     public static void rotate1(int[][] matrix) {
         int n = matrix.length;
         /*for (int i = 0; i < n; i++) {
@@ -67,6 +68,28 @@ public class _01_07_旋转矩阵 {
         //后面两个for循环是顺时针循环180°
 
 
+    }
+
+    //17点00分 2020/5/22
+    public void rotate4(int[][] matrix) {
+        int n = matrix.length;
+        //矩阵转置，即按斜对角线进行数据交换
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+
+        //矩阵根据中间列进行对折，得到最终结果
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n/2;j++){
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[i][n-j-1];
+                matrix[i][n-j-1] = temp;
+            }
+        }
     }
 
     public static void main(String[] args) {

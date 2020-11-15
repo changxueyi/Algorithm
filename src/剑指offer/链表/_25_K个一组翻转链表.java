@@ -1,7 +1,7 @@
 package 剑指offer.链表;
 
 /**
- * @ClassName _25_K个一组翻转链表
+ * @ClassName _25__K个一组翻转链表
  * @Description TODO
  * @Author changxueyi
  * @Date 2020/5/7 18:07

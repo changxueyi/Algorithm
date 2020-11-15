@@ -35,4 +35,20 @@ public class _5_最长回文子串 {
         }
         return ans;
     }
+
+
+    //labuladong 讲解的答案
+     /*string longestPalindrome1(string s) {
+        string res;
+        for (int i = 0; i < s.size(); i++) {
+            // 以 s[i] 为中心的最长回文子串
+            string s1 = palindrome(s, i, i);
+            // 以 s[i] 和 s[i+1] 为中心的最长回文子串
+            string s2 = palindrome(s, i, i + 1);
+            // res = longest(res, s1, s2)
+            res = res.size() > s1.size() ? res : s1;
+            res = res.size() > s2.size() ? res : s2;
+        }
+        return res;
+    }*/
 }

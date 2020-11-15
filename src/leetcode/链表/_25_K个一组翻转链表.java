@@ -7,7 +7,7 @@ import java.util.Deque;
 import java.util.Stack;
 
 /**
- * @ClassName _25_K个一组翻转链表
+ * @ClassName _25__K个一组翻转链表
  * @Description TODO
  * @Author changxueyi
  * @Date 2020/5/7 16:46
@@ -101,8 +101,8 @@ public class _25_K个一组翻转链表 {
         node5.next = node6;
         node6.next = node7;
         node7.next = node8;
-        ListNode a  = reverseKGroup1(node1,3);
-        while (a!=null){
+        ListNode a = reverseKGroup1(node1, 3);
+        while (a != null) {
             System.out.print(a.val);
             System.out.print("->");
             a = a.next;

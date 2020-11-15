@@ -16,6 +16,18 @@ public class _24_反转链表 {
         return newHead;
     }
 
+    public static ListNode reverserList1(ListNode head) {
+        if (null == head || head.next == null) {
+            return head;
+        }
+        ListNode newHead = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
+
+
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
@@ -28,10 +40,10 @@ public class _24_反转链表 {
         node3.next = node4;
         node4.next = node5;
         ListNode a = reverseList(node1);
-        while (a!= null) {
+        while (a != null) {
             System.out.print(a.val);
             System.out.print("->");
-            a =a.next;
+            a = a.next;
         }
     }
 

@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
- * @ClassName _234_回文链表
+ * @ClassName _234_回文链表0
  * @Description TODO
  * @Author changxueyi
  * @Date 2020/5/6 16:54
