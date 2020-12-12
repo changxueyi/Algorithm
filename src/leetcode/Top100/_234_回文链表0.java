@@ -11,9 +11,12 @@ public class _234_回文链表0 {
     //判断一个链表是否是回文链表
     public boolean isPalindrome(ListNode head) {
         //输入 1 -> false;
-        if (head==null) return true;
+        if (head == null) return true;
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
         return true;
     }
+
+
+
 }
